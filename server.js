@@ -9,15 +9,10 @@ http.createServer(function(req, res) {
         body += chunk.toString(); // convert Buffer to string
     });
     req.on('end', () => {
-        
         res.writeHead(200, {'Content-Type':'text/html'}); 
-        
-        bodyObject = parse(body);
-        
-        
+        bodyObject = parse(body);        
         reversedBody =  bodyObject.string1.split('').reverse().join('');
-      
-        res.end("this is our text: " + reversedBody); 
+        res.end(`<h1 style="background-color: red; text-align: center;"> this is our reversed text: ${reversedBody} </h1>`); 
     });
-    
+
 }).listen(8080);

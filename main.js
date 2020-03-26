@@ -9,7 +9,6 @@ async function getImages(){
     return pic_array
 }
 
-
 $(document).ready(function(){   
     getImages().then(response=>{ 
         $("#img1").attr("src", response[0].url)
